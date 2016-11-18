@@ -1,0 +1,8 @@
+.base_text {color: #068de8}
+
+.test_color{
+  @extend .base_text;
+  font-size: 52px;
+  font-style: italic;
+}
+

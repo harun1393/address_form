@@ -1,8 +1,29 @@
 import os
-from keys import *
+
+# from keys import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Project names
+PROJECT_NAME = 'Django Boiler Plate'
+
+# Secret keys
+DJANGO_SALT = 'ASKNLDJLhjsdgakdhkh!#@#@!#KSJHLDJADJ()*)(*)*())'
+
+# Database settings, by default, we use postgresql
+DB_PASSWORD = 'ak544944'
+DB_NAME = 'boiler_plate'
+DB_USER = 'test_admin'
+DB_HOST = 'localhost'
+DB_PORT = '5433'
+
+# Debug mode, change it to False in production
+DEBUG = True
+
+# Localization settings
+LANGUAGE_CODE = 'en-us'  # Your language code
+TIME_ZONE = 'America/Vancouver'  # Your timezone
 
 SECRET_KEY = DJANGO_SALT
 
@@ -18,7 +39,6 @@ DATABASES = {
         'PORT': DB_PORT,
     }
 }
-
 
 # Application definition
 
@@ -37,7 +57,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 ]
-
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +91,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'main.wsgi.application'
 
 # Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -95,9 +114,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
+# https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 USE_I18N = True
 
@@ -105,9 +123,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
@@ -127,7 +144,6 @@ BOWER_INSTALLED_APPS = (
     'jquery',
 )
 
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -135,3 +151,5 @@ STATICFILES_FINDERS = (
 )
 
 SITE_ID = 1
+
+BOWER_PATH = '/usr/local/bin/bower'

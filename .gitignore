@@ -15,3 +15,6 @@ node_modules/
 bower_components/
 mediafiles/
 docker-compose.yml
+assets/sass/main.css
+main/__pycache__/
+static/img/

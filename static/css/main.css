@@ -1687,3 +1687,12 @@ nav > ul > li {
   width: 100%;
   z-index: 5;
 }
+
+.base_text, .test_color {
+  color: #068de8;
+}
+
+.test_color {
+  font-size: 52px;
+  font-style: italic;
+}
