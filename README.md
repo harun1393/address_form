@@ -1,6 +1,6 @@
 Django Gulp Boilerplate v0.1
 ======
-Author: [Yan Hong](https://ca.linkedin.com/in/yan-hong-9111073b)
+Author: [Tanvir M](tanvir.mohammmad@gmail.com)
 
 What's included?
 ------
