@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     filter = require('gulp-filter'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    mainBowerFiles = require('main-bower-files'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
@@ -17,8 +18,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create();
 
 //Init
-// gulp.task('default', ['clean', 'copy:bower', 'static: styles', 'images', 'fonts', 'scripts', 'replace:bower', 'watch'], function() {
-gulp.task('default', ['clean', 'static: styles', 'images', 'fonts', 'scripts', 'watch'], function() {
+gulp.task('default', ['clean', 'copy:bower', 'static: styles', 'images', 'fonts', 'scripts', 'replace:bower', 'watch'], function() {
+// gulp.task('default', ['clean', 'static: styles', 'images', 'fonts', 'scripts', 'watch'], function() {
   browserSync.init({
     proxy: "localhost:8000"
   });
@@ -60,7 +61,7 @@ gulp.task('static: styles', function() {
 
 //Transfer images
 gulp.task('images', function() {
-  return gulp.src('assets/img/*')
+  return gulp.src('assets/img/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('static/img'))
 });
@@ -71,21 +72,21 @@ gulp.task('fonts', function() {
    .pipe(gulp.dest('static/fonts'));
 });
 
-// gulp.task('copy:bower', function () {
-//     return gulp.src(mainBowerFiles(['**/*.js', '!**/*.min.js']))
-//         .pipe(gulp.dest('static/js/libs'))
-//         .pipe(uglify())
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(gulp.dest('static/js/libs'));
-// });
-//
-// gulp.task('replace:bower', function(){
-//     return gulp.src([
-//         'static/**/*.js'
-//     ], {base: './'})
-//     .pipe(replace(/bower_components+.+(\/[a-z0-9][^/]*\.[a-z0-9]+(\'|\"))/ig, 'js/libs$1'))
-//     .pipe(gulp.dest('static'));
-// });
+gulp.task('copy:bower', function () {
+    return gulp.src(mainBowerFiles(['**/*.js', '!**/*.min.js']))
+        .pipe(gulp.dest('static/js/libs'))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('static/js/libs'));
+});
+
+gulp.task('replace:bower', function(){
+    return gulp.src([
+        'static/**/*.js'
+    ], {base: './'})
+    .pipe(replace(/bower_components+.+(\/[a-z0-9][^/]*\.[a-z0-9]+(\'|\"))/ig, 'js/libs$1'))
+    .pipe(gulp.dest('static'));
+});
 
 //Clean previous files
 gulp.task('clean', function() {
