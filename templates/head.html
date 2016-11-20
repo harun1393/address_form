@@ -1,7 +1,8 @@
 {% load staticfiles %}
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="Tanvir M">
@@ -10,8 +11,13 @@
     <meta property="og:description" content=""/>
     <meta property="og:url" content="{{ request.path }}">
     {% block thumbnail %}{% endblock %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.png' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <!-- Icons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome.min.csst' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/simple-line-icons.css' %}">
+    <!-- Main styles for this application -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
+
     {% if not DEBUG %}
     {% endif %}
     <title>{% block head_title %}{% endblock %}</title>

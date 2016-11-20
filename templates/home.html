@@ -1,22 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
 {% load avatar_tags %}
 
-{% block head_title %} {{ block.super}} {% endblock %}
-
-{% block navbar %}
-
-{{ block.super }}
-
-    <h1 class="test_color">Hello rana! You can Eat muri</h1>
-
-{% endblock %}
+{% block head_title %} Seed CRM {% endblock %}
 
 {% block content %}
-
+    {% include 'demo.html' %}
 {% endblock %}
 
-{% block script %}
 
-{% endblock %}

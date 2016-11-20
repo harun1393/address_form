@@ -1,12 +1,21 @@
 {
-  "name": "DjBoilerplate",
-  "description": "Django Gulp boilerplate",
+  "name": "SeedCRM",
+  "description": "Surovi CRM boilerplate",
   "main": "gulpfile.js",
   "authors": [
     "TanvirM <tanvir.mohammad@gmail.com>"
   ],
   "license": "#",
   "homepage": "#",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.4",
+    "tether": "latest",
+    "jquery": "^3.0.0",
+    "fontawesome": "latest",
+    "simple-line-icons": "latest",
+    "pace": "latest",
+    "chart.js": "^2.3.0"
+  },
   "private": true,
   "ignore": [
     "**/.*",

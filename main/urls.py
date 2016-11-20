@@ -20,6 +20,8 @@ from django.conf import settings
 from django.contrib import admin
 from . import views
 
+# TODO set default error pages
+
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^admin/', admin.site.urls),
