@@ -70,4 +70,4 @@ Project Structure
 
 Question?
 ------
-Email: onlyhongyan@gmail.com
+Email: onlyhongyan@gmail.com#address_form with Django

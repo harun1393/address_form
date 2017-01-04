@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^address/', include('address.urls')),
+    url(r'^api/', include('api.urls')),
 ]
 
 if settings.DEBUG:

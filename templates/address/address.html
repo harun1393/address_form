@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Get your address</h2>
+
+
+<form class="form">{% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+
+</div>
+
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript">
+$(document).ready(function () {
+    $( "#id_district" ).change(function() {
+
+    var id = $("select#id_district").val();
+    var url = 'http://10.10.10.159:8000/api/districts/?format=json&pk='+id;
+
+    $("#id_thana").empty();
+    $("#id_post").empty();
+    $("#id_thana").append("<option>------------</option>");  // add empty ----- to thana field
+    $("#id_post").append("<option>------------</option>");  // add empty ----- to post field
+
+    $.getJSON(url).done(function(data){
+
+        var thanas=data['results'][0]['thana'];
+        for(var i=0;i<thanas.length; i++){
+
+            $("#id_thana").append("<option>"+thanas[i]+"</option>");
+
+        }
+    });
+});
+    $( "#id_thana" ).change(function(){
+        var thana_name = $("select#id_thana").val();
+        var url = 'http://10.10.10.159:8000/api/thanas/?format=json&thana='+thana_name
+
+        $("#id_post").empty();
+
+        $.getJSON(url).done(function(data){
+        var postoffice = data['results'][0]['postoffice'];
+        for(var i=0; i<postoffice.length; i++){
+            $("#id_post").append("<option>"+postoffice[i]+"</option>");
+        }
+    });
+        console.log(url);
+    });
+
+})
+</script>
+{% endblock %}

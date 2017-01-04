@@ -3,21 +3,8 @@
 
 {% include 'head.html' %}
 
-<body class="navbar-fixed sidebar-nav fixed-nav">
-
-{% block navbar %}
-    {% include 'nav.html' %}
-{% endblock %}
-
-{% block sidebar %}
-    {% include 'side.html' %}
-{% endblock %}
-
+<body>
 <main class="main">
-{% block breadcrumb %}
-    {% include 'breadcrumb.html' %}
-{% endblock %}
-
     <div class="container-fluid">
         <div class="animated fadeIn">
             {% block content %}
@@ -32,10 +19,8 @@
     {% include 'aside.html' %}
 {% endblock %}
 
-{% include 'footer.html' %}
+
 
 {% include 'js.html' %}
-{% block extrajs %}
-{% endblock %}
 </body>
 </html>

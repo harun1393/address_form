@@ -27,16 +27,16 @@ TIME_ZONE = 'America/Vancouver'  # Your timezone
 
 SECRET_KEY = DJANGO_SALT
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.10.10.159',]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
+        #'USER': DB_USER,
+        #'PASSWORD': DB_PASSWORD,
+        #'HOST': DB_HOST,
+        #'PORT': DB_PORT,
     }
 }
 
@@ -56,6 +56,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'rest_framework',
+    'api',
+    'blog',
+    'address',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -153,3 +158,14 @@ STATICFILES_FINDERS = (
 SITE_ID = 1
 
 BOWER_PATH = '/usr/local/bin/bower'
+ACCOUNT_LOGIN_REDIRECT_URL = "/"
+ACCOUNT_SESSION_REMEMBER = False
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5
+}
+
+FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
+FAKER_PROVIDERS = None
